@@ -1,0 +1,54 @@
+<form [formGroup]="service.doctor" class="normal-form"  (submit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="300px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input type="hidden" formControlName="id">
+          <mat-form-field>
+            <input formControlName="firstName" matInput placeholder="First Name*">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="lastName" matInput placeholder="Last Name*">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="email" matInput placeholder="Email">
+            <mat-error>Invalid email address.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="phoneNumber" matInput placeholder="Mobile*">
+            <mat-error *ngIf="service.doctor.controls['phoneNumber'].errors?.required">This field is mandatory.</mat-error>
+            <mat-error *ngIf="service.doctor.controls['phoneNumber'].errors?.minlength">Minimum 8 charactors needed.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="address" matInput placeholder="City">
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="controles-container">
+          <div class="add-bottom-padding">
+            <!-- <mat-radio-group formControlName="">
+              <mat-radio-button value="1">Male</mat-radio-button>
+              <mat-radio-button value="2">Female</mat-radio-button>
+            </mat-radio-group> -->
+          </div>
+          <!-- <mat-form-field>
+         
+          </mat-form-field> -->
+          <mat-form-field>
+            <input formControlName="speciality" id='tes' matInput [matDatepicker]="picker" placeholder="Hire Date" (keyup)="done($event)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <!-- <div class="add-bottom-padding">
+            <mat-checkbox formControlName="isPermanent">Permanent Employee</mat-checkbox>
+          </div> -->
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" [disabled]="service.doctor.invalid">Submit</button>
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>

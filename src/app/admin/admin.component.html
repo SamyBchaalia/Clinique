@@ -1,0 +1,63 @@
+<mat-sidenav-container style="width: 100%;">
+    <mat-sidenav class="container" #sidenav mode="side" opened="true">
+      <mat-nav-list>
+  
+        <mat-list-item style="margin-top: 10%; margin-bottom:20%;">
+          <img src="../../assets/goinprod.png" width="100%">
+        </mat-list-item>
+        <mat-list-item >
+            <div class="col-md-12 text-center">
+                <button type="button" class="btn btn-outline-warning" >SIGN OUT</button>
+
+            </div>
+          </mat-list-item>
+          
+        <mat-list-item  class="item-link" [routerLink]="'dashboard'">
+            <img src="../../assets/overview_ic.svg" height="50%">
+          <span class="margin" *ngIf="isExpanded">General Information</span>
+        </mat-list-item>
+        <mat-list-item  class="item-link" [routerLink]="'doctors'">
+            <img src="../../assets/doctors_ic.svg" height="50%">
+         <span class="margin" *ngIf="isExpanded">Doctors</span>
+       </mat-list-item>
+       <mat-list-item class="item-link" [routerLink]="'info'">
+        <img src="../../assets/secretarys_ic.svg" height="50%">
+      
+     <span class="margin" *ngIf="isExpanded">Secretarys</span>
+   </mat-list-item>
+       <mat-list-item class="item-link" [routerLink]="'info'">
+        <img src="../../assets/patients_ic.svg" height="50%">
+      <span class="margin" *ngIf="isExpanded">Patients</span>
+    </mat-list-item>
+       
+   <mat-list-item class="item-link" [routerLink]="'info'">
+    <img src="../../assets/stock_ic.svg" height="50%">
+  
+ <span class="margin"  *ngIf="isExpanded">Stock</span>
+</mat-list-item>
+<mat-list-item class="item-link" [routerLink]="'info'">
+    <img src="../../assets/payements_ic.svg" height="50%">
+ <span class="margin" *ngIf="isExpanded">Paiements</span>
+</mat-list-item>
+<mat-list-item class="item-link" [routerLink]="'info'">
+    <img src="../../assets/consultations_ic.svg" height="50%">
+  
+ <span class="margin" *ngIf="isExpanded">Consultation</span>
+</mat-list-item>
+<mat-list-item class="item-link" [routerLink]="'info'">
+    <img src="../../assets/settings_ic.svg" height="50%">
+  
+ <span class="margin" *ngIf="isExpanded">Settings</span>
+</mat-list-item>
+        
+        
+  
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <div class="row m-0 p-0 " >
+    
+      <router-outlet></router-outlet>
+    </div>
+  
+  </mat-sidenav-container>
